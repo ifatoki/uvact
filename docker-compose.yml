@@ -1,0 +1,18 @@
+version: "3"
+services:
+  reverse-and-random:
+    build: microservice1
+    environment:
+      - REVERSE_STRING_GENERATOR_URL=http://reverse:5000
+    ports:
+      - "3000:3000"
+    networks:
+      - uvact
+  
+  reverse:
+    build: microservice2
+    networks:
+      - uvact
+
+networks:
+  uvact:
