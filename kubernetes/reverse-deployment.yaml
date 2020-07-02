@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: reverse
+  name: reverse-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reverse
+  template:
+    metadata:
+      labels:
+        app: reverse
+    spec:
+      containers:
+      - image: uvact_reverse
+        imagePullPolicy: Never
+        name: reverse
+        ports:
+          - containerPort: 5000
+      restartPolicy: Always

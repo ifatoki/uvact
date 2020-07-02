@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: reverse-and-random
+  name: reverse-and-random-deployment
+spec:
+  replicas: 12
+  selector:
+    matchLabels:
+      app: reverse-and-random
+  template:
+    metadata:
+      labels:
+        app: reverse-and-random
+    spec:
+      containers:
+      - env:
+        - name: REVERSE_STRING_GENERATOR_URL
+          value: http://reverse.default.svc.cluster.local:5000
+        image: uvact_reverse-and-random
+        imagePullPolicy: Never
+        name: reverse-and-random
+        ports:
+        - containerPort: 3000
+      restartPolicy: Always
+      
