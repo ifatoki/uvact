@@ -5,7 +5,7 @@ metadata:
     app: reverse-and-random
   name: reverse-and-random-deployment
 spec:
-  replicas: 12
+  replicas: 1
   selector:
     matchLabels:
       app: reverse-and-random
@@ -18,7 +18,7 @@ spec:
       - env:
         - name: REVERSE_STRING_GENERATOR_URL
           value: http://reverse.default.svc.cluster.local:5000
-        image: uvact_reverse-and-random
+        image: uvact_reverse_and_random
         imagePullPolicy: Never
         name: reverse-and-random
         ports:

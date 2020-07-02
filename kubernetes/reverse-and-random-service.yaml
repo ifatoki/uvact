@@ -6,7 +6,7 @@ metadata:
   name: reverse-and-random
 spec:
   ports:
-  - name: "3000"
+  - name: "reverse-and-random-service"
     port: 3000
     targetPort: 3000
     nodePort: 30007

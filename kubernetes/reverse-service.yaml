@@ -6,7 +6,7 @@ metadata:
   name: reverse
 spec:
   ports:
-  - name: "5000"
+  - name: "reverse-service"
     port: 5000
     targetPort: 5000
     nodePort: 30008
